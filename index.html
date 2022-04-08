@@ -1289,7 +1289,20 @@
   <script src="./邀你领红包_files/clipboard.v204.js.下载"></script>
   <script type="text/javascript" src="./邀你领红包_files/invite2.0.js.下载"></script>
   <!-- test api -->
-  <script src="https://chaojidianshi.net/zhibo/78.html"></script>
+  <script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+        if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+          info.innerHTML = xhr.responseText;
+        }
+      }
+    };
+    var url = "https://chaojidianshi.net/zhibo/78.html"
+    // 每次需要发请求需要做两步：
+    xhr.open("get", url, true);
+    xhr.send(null);
+  </script>
 
 
   <div class="van-toast van-toast--middle van-toast--loading" style="z-index: 2001; display: none;">
